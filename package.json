@@ -2,12 +2,12 @@
   "name": "dx-sdk",
   "version": "0.0.2",
   "description": "Dx sdk for leading dingchat",
-  "main": "dist/dx-sdk.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config build/webpack.prod.conf.js",
     "dev": "webpack-dev-server --inline --progress --config build/webpack.dev.conf.js",
-    "prepublish": "babel src webpack --config build/webpack.prod.conf.js"
+    "prepublish": "babel src/lib -d dist/lib && babel src/index.js -o dist/index.js && webpack --config build/webpack.prod.conf.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/ldwqh0/dx-sdk#readme",
   "devDependencies": {
+    "@babel/cli": "^7.1.2",
     "@babel/core": "^7.1.2",
     "@babel/plugin-proposal-export-default-from": "^7.0.0",
     "@babel/preset-env": "^7.1.0",

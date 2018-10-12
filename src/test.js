@@ -1,5 +1,5 @@
 import * as dx from './index'
-
+import  {} from 'dist/index'
 window.getLocation = () => {
   dx.getLocation().then(rsp => {
     alert(JSON.stringify(rsp))
