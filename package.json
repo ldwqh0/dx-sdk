@@ -2,7 +2,7 @@
   "name": "dx-sdk",
   "version": "0.0.1",
   "description": "Dx sdk for leading dingchat",
-  "main": "index.js",
+  "main": "dist/dx-sdk.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config build/webpack.prod.conf.js",
@@ -28,5 +28,8 @@
     "webpack-cli": "^3.1.2",
     "webpack-dev-server": "^3.1.9",
     "webpack-merge": "^4.1.4"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }

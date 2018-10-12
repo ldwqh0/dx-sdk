@@ -5,6 +5,7 @@ module.exports = merge(baseConfig, {
   mode: 'production',
   output: {
     library: 'dx',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    filename: 'dx-sdk.js'
   }
 })
