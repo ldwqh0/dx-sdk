@@ -1,6 +1,7 @@
 import callBack from './callBack'
+import resolveResult from './resultUtils'
 
-export default ({ count, sourceType } = { count: 9, sourceType: 'album' }) => {
+export default ({ count = 9, sourceType = 'album' }) => {
 
   /**
    * 从相册选择图片
@@ -10,9 +11,12 @@ export default ({ count, sourceType } = { count: 9, sourceType: 'album' }) => {
     return new Promise((resolve, reject) => {
       if (window.dchat) {
         window.dchat.getPictureForCamera('openCam')
+      } else {
+        reject('')
+        return
       }
       callBack['openCam'] = result => {
-        resolve(result)
+        resolveResult(result, { resolve, reject })
       }
     })
   }
@@ -26,9 +30,12 @@ export default ({ count, sourceType } = { count: 9, sourceType: 'album' }) => {
     return new Promise((resolve, reject) => {
       if (window.dchat) {
         window.dchat.getPicture('selectPictureForAppoint', count)
+      } else {
+        reject('')
+        return
       }
       callBack['selectPictureForAppoint'] = result => {
-        resolve(result)
+        resolveResult(result, { resolve, reject })
       }
     })
   }

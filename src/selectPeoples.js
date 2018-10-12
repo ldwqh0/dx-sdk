@@ -1,12 +1,16 @@
 import callBack from './callBack'
+import resolveResult from './resultUtils'
 
 export default () => {
   return new Promise((resolve, reject) => {
     if (window.dchat) {
-      window.dchat.selectPeoplesDefault('showPicture')
+      window.dchat.selectPeoplesDefault('selectPeoplesDefault')
+    } else {
+      reject()
+      return
     }
-    callBack['showPicture'] = (result) => {
-      resolve(result)
+    callBack['selectPeoplesDefault'] = (result) => {
+      resolveResult(result, { resolve, reject })
     }
   })
 }

@@ -6,14 +6,15 @@ import resolveResult from './resultUtils'
  * @param coorType
  * @returns {Promise<any>}
  */
-export default ({ coorType } = { coorType: 'wgs84' }) => {
+export default ({ coorType = 'wgs84' }) => {
   return new Promise((resolve, reject) => {
     if (window.dchat) {
       window.dchat.getLocation('getLocationForType', coorType)
     } else {
       reject('unsupported brower')
+      return
     }
-    callBack['getLocationForType'] = (result) => {
+    callBack['getLocationForType'] = result => {
       resolveResult(result, { resolve, reject })
     }
   })

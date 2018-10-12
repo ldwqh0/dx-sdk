@@ -1,7 +1,7 @@
-export default ({ callBackId, data, status }, { resolve, reject }) => {
+export default ({ callBackId, data, status, message }, { resolve, reject }) => {
   if (status === 'success') {
     resolve(data)
   } else {
-    reject(data)
+    reject(message)
   }
 }
