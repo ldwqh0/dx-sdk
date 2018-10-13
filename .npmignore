@@ -1,2 +1,2 @@
-dist/@types
-dist/types/@types/Window.d.ts
+/dist/@types/
+/dist/types/@types/Window.d.ts
