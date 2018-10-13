@@ -1,7 +1,7 @@
 import callBack from './callBack'
 import resolveResult from './resultUtils'
 
-export function scanQRCode () {
+export const scanQRCode = (): Promise<any> => {
   return new Promise((resolve, reject) => {
     if (window.dchat) {
       window.dchat.scanQRCode('scanQRCode')
@@ -15,7 +15,7 @@ export function scanQRCode () {
   })
 }
 
-export function readQRCode () {
+export const readQRCode = (): Promise<any> => {
   return new Promise((resolve, reject) => {
     if (window.dchat) {
       window.dchat.readQRCode('readQRCode')
