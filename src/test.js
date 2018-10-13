@@ -1,5 +1,5 @@
 import * as dx from './index'
-import  {} from 'dist/index'
+
 window.getLocation = () => {
   dx.getLocation().then(rsp => {
     alert(JSON.stringify(rsp))
@@ -17,7 +17,7 @@ window.camera = () => {
 }
 
 window.selectpic = () => {
-  dx.chooseImage({ count: 1 }).then(rsp => {
+  dx.chooseImage().then(rsp => {
     alert(JSON.stringify(rsp))
   })
 }

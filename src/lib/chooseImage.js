@@ -1,7 +1,7 @@
 import callBack from './callBack'
 import resolveResult from './resultUtils'
 
-export default ({ count = 9, sourceType = 'album' }) => {
+export default ({ count = 9, sourceType = 'album' } = { count: 9, sourceType: 'album' }) => {
 
   /**
    * 从相册选择图片
