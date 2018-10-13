@@ -1,7 +1,7 @@
 import callBack from './callBack'
 import resolveResult from './resultUtils'
 
-export default ({ count = 9, sourceType = 'album' }: { count: number, sourceType: string } = {
+export default ({ count = 9, sourceType = 'album' }: { count?: number, sourceType?: string } = {
   count: 9,
   sourceType: 'album'
 }): Promise<any> => {

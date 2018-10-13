@@ -1,5 +1,11 @@
 import * as dx from './index'
 
+// declare interface Window {
+//   getLocation: () => void,
+//   selectPeoples: () => void
+//   closeWindow: () => void
+// }
+
 window.getLocation = () => {
   dx.getLocation().then(rsp => {
     alert(JSON.stringify(rsp))

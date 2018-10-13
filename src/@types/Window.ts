@@ -11,5 +11,6 @@ declare interface Window {
     chooseImage: (id: string) => void
   },
 
-  __callbackMessageFromNative: (result: CallBackResult) => void
+  __callbackMessageFromNative: (result: CallBackResult) => void,
+
 }
