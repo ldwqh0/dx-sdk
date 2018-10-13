@@ -1,6 +1,6 @@
 {
   "name": "dx-sdk",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Dx sdk for leading dingchat",
   "main": "dist/index.js",
   "scripts": {
@@ -34,7 +34,11 @@
     "webpack-merge": "^4.1.4"
   },
   "files": [
-    "dist"
+    "dist/lib",
+    "dist/types/index.d.ts",
+    "dist/types/lib",
+    "dist/dx-sdk.js",
+    "dist/index.js"
   ],
   "typings": "dist/types"
 }
