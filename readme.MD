@@ -1,6 +1,7 @@
 dx-js-SDK构建工程
 
-一个简单的鼎信sdk
+一个简单的鼎信sdk，
+sdk依赖于promise,如果在不支持Promise的环境中使用该库，可能需要引入相应的pollyfill
 
 运行方法
 ```
@@ -40,4 +41,47 @@ dx.scanQRCode()
 dx.previewImage({
   url:'aa' // 图片地址
 })
+```
+
+## 引入方法
+### npm 引入(推荐)
+```bash
+npm i -S dx-sdk
+```
+
+全量引入
+```javascript
+import * as dx from 'dx-sdk' // 全量引入,es方式
+const dx = require('dx-sdk') // commonjs模式
+ dx.getLocation().then(res => {
+   // more code       
+ })
+```
+
+按需引入--推荐
+这种引入模式会减小打包文件的体系(虽然本身提交就不大)
+```javascript
+ import getLocation from 'dx-sdk/dist/lib/getLocation' // es方式引入
+ const getLocation = require('dx-sdk/dist/lib/getLocation') // commonjs模式引入
+ 
+ getLocation().then(res => {
+ 
+ })
+
+```
+### script引入(不推荐)
+
+首先需要构建项目。运行npm run build
+会在目录下生成dist/dx-sdk.js
+即可在项目中引入该js
+```html
+<html>
+<script src="dist/dx-sdk.js"></script>
+<script>
+    dx.getLocation().then(rsp=>{
+      // more code
+    })
+</script>
+</html>
+
 ```
