@@ -27,6 +27,19 @@ window.selectpic = () => {
     alert(JSON.stringify(rsp))
   })
 }
+
+window.chooseFileFromNetDisk = () => {
+  dx.chooseFile({ sourceType: 'netDisk' }).then(result => {
+    alert(JSON.stringify(result))
+  })
+}
+
+window.chooseFileFromLocal = () => {
+  dx.chooseFile().then(result => {
+    alert(JSON.stringify(result))
+  })
+}
+
 window.selectMorePic = () => {
   dx.chooseImage({ count: 3 }).then(rsp => {
     alert(JSON.stringify(rsp))

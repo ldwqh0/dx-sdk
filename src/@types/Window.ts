@@ -1,5 +1,5 @@
 declare interface Window {
-  dchat: {
+  dchat?: {
     showPicture: (id: string, url: string) => void,
     scanQRCode: (id: string) => void,
     readQRCode: (id: string) => void,
@@ -8,9 +8,15 @@ declare interface Window {
     getPicture: (id: string, count?: number) => void
     close: () => void,
     getLocation: (id: string, coorType?: string) => void,
-    chooseImage: (id: string) => void
+    chooseImage: (id: string) => void,
+    selectFileFromDisk: (id: string) => void,
+    selectFileFromLocal: (id: string) => void
   },
 
-  __callbackMessageFromNative: (result: CallBackResult) => void,
+  webkit?: {
+    messageHandlers: any
+  }
+
+  __callbackMessageFromNative?: (result: CallBackResult) => void,
 
 }

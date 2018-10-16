@@ -35,5 +35,73 @@
     <a href="javascript:void(0)" onclick="chooseFileFromNetDisk()">选择网盘文件</a><br>
 </div>
 <!-- built files will be auto injected -->
+<script src="dist/dx-sdk.js"></script>
+<script>
+  (function () {
+    window.getLocation = () => {
+      dx.getLocation().then(rsp => {
+        alert(JSON.stringify(rsp))
+      })
+    }
+
+    window.closeWindow = () => {
+      dx.closeWindow()
+    }
+
+    window.camera = () => {
+      dx.chooseImage({ sourceType: 'camera' }).then(rsp => {
+        alert(JSON.stringify(rsp))
+      })
+    }
+
+    window.selectpic = () => {
+      dx.chooseImage().then(rsp => {
+        alert(JSON.stringify(rsp))
+      })
+    }
+    window.selectMorePic = () => {
+      dx.chooseImage({ count: 3 }).then(rsp => {
+        alert(JSON.stringify(rsp))
+      })
+    }
+
+    window.scanQRCode = () => {
+      dx.scanQRCode().then(rsp => {
+        alert(JSON.stringify(rsp))
+      })
+    }
+
+    window.previewImage = () => {
+      dx.previewImage({ url: 'http://www.tagxp.com/uploads/allimg/c170603/149642154A0240-c033.jpg' }).then(rsp => {
+        console.log(rsp)
+      })
+    }
+
+    window.selectPeoples = () => {
+      dx.selectPeoples().then(rsp => {
+        let [{
+          avatarUrl,
+          nickname,
+          orgId,
+          userNo
+        }] = rsp
+        alert(JSON.stringify(rsp))
+      })
+    }
+
+    window.chooseFileFromNetDisk = () => {
+      dx.chooseFile({ sourceType: 'netDisk' }).then(result => {
+        alert(JSON.stringify(result))
+      })
+    }
+
+    window.chooseFileFromLocal = () => {
+      dx.chooseFile().then(result => {
+        alert(JSON.stringify(result))
+      })
+    }
+
+  })()
+</script>
 </body>
 </html>

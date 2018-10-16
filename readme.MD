@@ -15,6 +15,21 @@ npm run dev 可以打开一个简单的测试页面
 ```javascript
 dx.getLocation({
   coorType: 'wgs84' //坐标系，wgs84/bd09/gcj02
+}).then(result=>{
+  let {
+    accuracy,
+    altitude,
+    altitudeAccuracy,
+    coorType,
+    heading,
+    latitude,
+    longitude,
+    timestamp,
+    velocity
+  } = result
+  // more code
+}).catch(e=>{
+  
 })
 ```
 * 关闭窗口
@@ -24,22 +39,55 @@ dx.closeWindow()
 
 * 选择多张图片
 ```javascript
-
 dx.chooseImage({
   count:1,
   sourceType:'album' // album 相册,camera 相机
+}).then(result=>{
+  // more code
+}).catch(e=>{
+  
+})
+```
+
+* 选择文件
+```javascript
+dx.chooseFile({
+  sourceType:'netDisk' // 从网盘选择，从本地选择
+}).then(result=>{
+  
+}).catch(e=>{
+  
 })
 ```
 
 * 扫描二维码
 ```javascript
-dx.scanQRCode()
+dx.scanQRCode().then(result=>{
+  // more code
+}).catch(e=>{
+  
+})
 ```
 
 * 预览图片
 ```javascript
 dx.previewImage({
   url:'aa' // 图片地址
+})
+```
+
+* 人员选择
+```javascript
+dx.selectPeoples().then(result=>{
+  let [{
+        avatarUrl,
+        nickname,
+        orgId,
+        userNo
+      }]= result
+  // more code
+}).catch(e=>{
+  
 })
 ```
 

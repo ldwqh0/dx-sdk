@@ -5,8 +5,10 @@ export const scanQRCode = (): Promise<any> => {
   return new Promise((resolve, reject) => {
     if (window.dchat) {
       window.dchat.scanQRCode('scanQRCode')
+    } else if (window.webkit.messageHandlers.scanQRCode) {
+      window.webkit.messageHandlers.readQRCode.postMessage('scanQRCode', null)
     } else {
-      reject()
+      reject('Unsupported browsers')
       return
     }
     callBack.scanQRCode = (result) => {
@@ -20,7 +22,7 @@ export const readQRCode = (): Promise<any> => {
     if (window.dchat) {
       window.dchat.readQRCode('readQRCode')
     } else {
-      reject()
+      reject('Unsupported browsers')
       return
     }
     callBack.readQRCode = (result) => {

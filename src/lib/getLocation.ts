@@ -10,8 +10,11 @@ export default ({ coorType } = { coorType: 'wgs84' }): Promise<any> => {
   return new Promise((resolve, reject) => {
     if (window.dchat) {
       window.dchat.getLocation('getLocationForType', coorType)
-    } else {
-      reject('unsupported brower')
+    } else if (window.webkit.messageHandlers.getLocation) {
+      window.webkit.messageHandlers.getLocation.postMessage('getLocationForType', coorType)
+    }
+    else {
+      reject('Unsupported browsers')
       return
     }
     callBack['getLocationForType'] = result => {

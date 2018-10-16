@@ -14,8 +14,10 @@ export default ({ count = 9, sourceType = 'album' }: { count?: number, sourceTyp
     return new Promise((resolve, reject) => {
       if (window.dchat) {
         window.dchat.getPictureForCamera('openCam')
+      } else if (window.webkit.messageHandlers.getPictureForCamera) {
+        window.webkit.messageHandlers.getPictureForCamera.postMessage('openCam')
       } else {
-        reject('')
+        reject('Unsupported browsers')
         return
       }
       callBack['openCam'] = result => {
@@ -33,8 +35,10 @@ export default ({ count = 9, sourceType = 'album' }: { count?: number, sourceTyp
     return new Promise((resolve, reject) => {
       if (window.dchat) {
         window.dchat.getPicture('selectPictureForAppoint', count)
+      } else if (window.webkit.messageHandlers.getPicture) {
+        window.webkit.messageHandlers.getPicture.postMessage('selectPictureForAppoint', count)
       } else {
-        reject('')
+        reject('Unsupported browsers')
         return
       }
       callBack['selectPictureForAppoint'] = (result: CallBackResult) => {
